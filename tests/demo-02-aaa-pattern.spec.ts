@@ -10,7 +10,18 @@
  *
  * Chạy: npx playwright test tests/demo-02-aaa-pattern.spec.ts
  */
+/*BTVN
+Bai 3.1
+Error: expect(locator).toBeVisible() failed
 
+Locator: locator('#phanthanhson')
+Expected: visible
+Timeout: 5000ms
+Error: element(s) not found
+
+Bai 3.2
+Do DATA truyền sai selector để test
+*/
 import { test, expect } from '@playwright/test';
 
 // ─── Ví dụ 1: Tìm kiếm trên Google ───────────────────────────
@@ -26,7 +37,7 @@ test('AAA-01: Tìm kiếm từ khóa "Playwright" trên Google', async ({ page }
 
   // ~~~~~~~~~~~~~~~~~~~~~~~~ ASSERT ~~~~~~~~~~~~~~~~~~~~~~~~~
   // Kiểm tra: kết quả tìm kiếm xuất hiện
-  await expect(page.locator('#search')).toBeVisible();
+  await expect(page.locator('#phanthanhson')).toBeVisible();
 });
 
 

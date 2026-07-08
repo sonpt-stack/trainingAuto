@@ -6,7 +6,17 @@
  *
  * Chạy: npx playwright test tests/demo-06-page-actions.spec.ts
  */
-
+/* BTVN
+1. Module test Các page actions cơ bản
+2. Có 6 test
+- test 1: Nhập text vào ô input => 'Nội dung cần nhập'
+- test 2: Test click vào checkbox để đánh dấu hoàn thành task
+- test 3: Test nhấn phím enter sau khi nhập thông tin
+- task 4: Test xóa task
+- task 5: Test mở và chọn option trong dropdown
+- task 6: Test check và uncheck checkbox
+3. 
+*/ 
 import { test, expect } from '@playwright/test';
 
 // modulte
