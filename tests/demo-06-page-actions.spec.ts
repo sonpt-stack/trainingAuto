@@ -6,25 +6,36 @@
  *
  * Chạy: npx playwright test tests/demo-06-page-actions.spec.ts
  */
+/* BTVN
+1. Module test Các page actions cơ bản
+2. Có 6 test
+- test 1: Nhập text vào ô input => 'Nội dung cần nhập'
+- test 2: Test click vào checkbox để đánh dấu hoàn thành task
+- test 3: Test nhấn phím enter sau khi nhập thông tin
+- task 4: Test xóa task
+- task 5: Test mở và chọn option trong dropdown
+- task 6: Test check và uncheck checkbox
+
+*/ 
 
 import { test, expect } from '@playwright/test';
 
-// modulte
 test.describe('Các hàm thao tác (page actions) cơ bản', () => {
-
+//ARRANGE
   test.beforeEach(async ({ page }) => {
     await page.goto('https://demo.playwright.dev/todomvc');
   });
 
   test('ACT-01: page.fill() – Nhập text vào ô input', async ({ page }) => {
-    // Nhập text
+    // Nhập text//ACTION
     await page.fill('input.new-todo', 'Nội dung cần nhập');
     await page.keyboard.press('Enter');
 
-    // Kiểm tra
+    // Kiểm tra//ASERT
     await expect(page.locator('.todo-list li'))
       .toContainText('Nội dung cần nhập');
   });
+//GIẢI THÍCH EXPECT: Trong locator todo list chứa text "Nội dung cần nhập"
 
   test('ACT-02: page.click() – Click vào element', async ({ page }) => {
     // Thêm 1 task
@@ -61,7 +72,7 @@ test.describe('Các hàm thao tác (page actions) cơ bản', () => {
     await page.click('.todo-list li .destroy');
 
     // Kiểm tra task đã bị xóa
-    await expect(page.locator('.todo-list li')).toHaveCount(1);
+    await expect(page.locator('.todo-list li')).toHaveCount(0);
   });
 
   test('ACT-05: page.selectOption() – Chọn dropdown', async ({ page }) => {
