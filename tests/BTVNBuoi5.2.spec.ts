@@ -11,7 +11,7 @@ test('Google Search - Playwright automation', async ({ page, context }) => {
   // 1. ARRANGE: Mở trang Google
   await page.goto('https://www.google.com', { waitUntil: 'domcontentloaded' });
 
-  // Xử lý nút đồng ý Cookie nếu có xuất hiện
+  
   const acceptBtn = page.getByRole('button', { name: /accept all|tất cả|đồng ý/i });
   if (await acceptBtn.isVisible().catch(() => false)) {
     await acceptBtn.click();
@@ -31,7 +31,7 @@ test('Google Search - Playwright automation', async ({ page, context }) => {
   const searchResults = page.locator('#rso h3');
 
   // Kiểm tra tiêu đề kết quả đầu tiên xuất hiện
-  await expect(searchResults.first()).toBeVisible({ timeout: 10000 });
+  await expect(searchResults.first()).toBeVisible({ timeout: 1000 });
 
   // Kiểm tra số lượng kết quả lớn hơn 0
   const count = await searchResults.count();
